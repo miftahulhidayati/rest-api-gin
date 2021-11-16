@@ -1,6 +1,7 @@
 package database
 
 import (
+	"github.com/miftahulhidayati/rest-api-gin/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -11,5 +12,6 @@ func InitMysqlDB() *gorm.DB {
 	if err != nil {
 		panic(err)
 	}
+	db.AutoMigrate(models.Person{})
 	return db
 }
